@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "_containers/*": ["src/containers/*"],
+      "_components/*": ["src/components/*"],
+      "_constants/*": ["src/constants/*"],
+      "_src/*": ["src/*"],
+      "_utils/*": ["src/utils/*"],
+      "_assets/*": ["src/assets/*"]
+    }
+  },
+  "exclude": ["node_modules", "extensions", "tutorials", "docs", "tutorials-src"]
+}
