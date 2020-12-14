@@ -13,7 +13,7 @@ import { HashRouter } from 'react-router-dom';
 import Routes from '_src/routes';
 import rootStore from '_src/stores';
 
-import { WebLayout } from '_src/pages/Layout';
+import { WebLayout } from '_src/Layout';
 
 import '_assets/less/index.less';
 
