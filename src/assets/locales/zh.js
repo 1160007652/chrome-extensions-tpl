@@ -7,8 +7,14 @@
  */
 
 const zhCN = {
-  Language: '语言环境',
-  locale_zh: '中文',
-  locale_en: '英文',
+  translation: {
+    language: '语言',
+    zhCN: '中文',
+    enUS: '英文',
+  },
+  home: {
+    title: 'React Chrome Extension 开发模版',
+    technology: '技术栈：',
+  },
 };
 export default zhCN;

@@ -11,26 +11,26 @@ const path = require('path');
 const { SRC_ROOT, HMR_CLIENT_SCRIPT } = require('./getPath');
 
 const devEntry = {
-  background: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'pages/Background/index.js')],
-  options: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'pages/Options/index.js')],
-  popup: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'pages/Popup/index.js')],
+  background: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Background/index.js')],
+  options: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Options/index.js')],
+  popup: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Popup/index.js')],
 };
 const proEntry = {
-  background: path.resolve(SRC_ROOT, 'pages/Background/index.js'),
-  options: path.resolve(SRC_ROOT, 'pages/Options/index.js'),
-  popup: path.resolve(SRC_ROOT, 'pages/Popup/index.js'),
+  background: path.resolve(SRC_ROOT, 'app/Background/index.js'),
+  options: path.resolve(SRC_ROOT, 'app/Options/index.js'),
+  popup: path.resolve(SRC_ROOT, 'app/Popup/index.js'),
 };
 
 const webpackEntry = process.env.NODE_ENV === 'development' ? devEntry : proEntry;
 
 /**
- * 开始 - 遍历 src/pages/Contents 目录下的 模块
+ * 开始 - 遍历 src/app/Contents 目录下的 模块
  * */
 
-const scriptNames = fs.readdirSync(path.resolve(SRC_ROOT, './pages/Contents'));
+const scriptNames = fs.readdirSync(path.resolve(SRC_ROOT, './app/Contents'));
 
 scriptNames.forEach((name) => {
-  const contentModulePath = path.resolve(SRC_ROOT, `./pages/Contents/${name}/index.js`);
+  const contentModulePath = path.resolve(SRC_ROOT, `./app/Contents/${name}/index.js`);
 
   // webpack 入口模块， 以及最后生成的文件，都是使用这个名称， 将首字母转为小写
   const webpackEntryContentName = name.replace(name[0], name[0].toLowerCase());

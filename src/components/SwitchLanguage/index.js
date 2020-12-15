@@ -1,25 +1,34 @@
 import React from 'react';
-import intl from 'react-intl-universal';
-import { languageEvent, EVENT_LIST } from '_src/utils/events';
-import { observer } from 'mobx-react';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 import './index.less';
 
 /**
  * 其它组件
  */
-const SwitchLanguage = (props) => {
-  const handleToggleLanguage = (lang) => {
-    return () => {
-      languageEvent.emit(EVENT_LIST.CHANGE_LANGUAGE, lang);
-    };
+const SwitchLanguage = () => {
+  const { t, i18n } = useTranslation();
+
+  const handleToggleLanguage = ({ key }) => {
+    i18n.changeLanguage(key);
   };
+
+  const MenuList = (
+    <Menu onClick={handleToggleLanguage} style={{ minWidth: '100px' }}>
+      <Menu.Item key="zhCN">{t('zhCN')}</Menu.Item>
+      <Menu.Item key="enUS">{t('enUS')}</Menu.Item>
+    </Menu>
+  );
+
   return (
-    <div className="components_outher">
-      切换多语言
-      <div onClick={handleToggleLanguage('zhCN')}>{intl.get('locale_zh')}</div>
-      <div onClick={handleToggleLanguage('enUS')}>{intl.get('locale_en')}</div>
-    </div>
+    <Dropdown overlay={MenuList} style={{ cursor: 'pointer' }} placement="bottomRight">
+      <div className="components-switch-language">
+        <span style={{ marginRight: '6px' }}>{t(i18n.language)}</span>
+        <DownOutlined />
+      </div>
+    </Dropdown>
   );
 };
 

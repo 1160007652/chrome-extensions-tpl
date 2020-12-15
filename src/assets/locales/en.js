@@ -7,8 +7,14 @@
  */
 
 const enUS = {
-  Language: 'Language',
-  locale_zh: 'Chinese',
-  locale_en: 'English',
+  translation: {
+    Language: 'Language',
+    zhCN: 'Chinese',
+    enUS: 'English',
+  },
+  home: {
+    title: 'React Chrome Extension development template',
+    technology: 'Technology stack:',
+  },
 };
 export default enUS;

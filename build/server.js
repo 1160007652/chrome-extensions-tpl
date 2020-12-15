@@ -32,7 +32,7 @@ app.use(webpackHotMiddleware(compiler, { path: '/__webpack_HMR__' }));
 app.use(
   extensionAutoReload(compiler, {
     path: '/__webpack_ext_reload__',
-    contentScriptPath: path.resolve(__dirname, '../src/pages/Contents'),
+    contentScriptPath: path.resolve(__dirname, '../src/app/Contents'),
   }),
 );
 

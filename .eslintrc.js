@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   env: {
     browser: true,
-    es2020: true,
+    es2021: true,
     node: true,
   },
   extends: [
@@ -17,15 +17,15 @@ module.exports = {
     // 专门支持了 @typescript-eslint/eslint-plugin
     // 'prettier/@typescript-eslint',
   ],
-  parser: 'babel-eslint', // "parser": "@typescript-eslint/parser",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 11,
+    ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react'],
   rules: {
     'react/button-has-type': 'never',
     'react/prop-types': 'never',

@@ -3,7 +3,7 @@ const config = require('../config.js');
 function logWithPrefix(info) {
   console.log(`[EAR] ${info}`);
 }
-const source = new EventSource(`http://127.0.0.1:${config.dev.port}/__webpack_ext_reload__`);
+const source = new EventSource(`http://${config.dev.ip}:${config.dev.port}/__webpack_ext_reload__`);
 
 source.addEventListener(
   'open',

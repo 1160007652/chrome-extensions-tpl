@@ -22,9 +22,9 @@ const extensionAutoReload = (_compiler, opts) => {
           contentScriptsModules.forEach((contentName) => {
             const findModules = modules.find((item) => {
               if (item.type === 'module') {
-                if (item.issuerName && item.issuerName.startsWith(`./src/pages/Contents/${contentName}`)) {
+                if (item.issuerName && item.issuerName.startsWith(`./src/app/Contents/${contentName}`)) {
                   return true;
-                } else if (item.name && item.name.startsWith(`./src/pages/Contents/${contentName}`)) {
+                } else if (item.name && item.name.startsWith(`./src/app/Contents/${contentName}`)) {
                   return true;
                 } else {
                   return false;
