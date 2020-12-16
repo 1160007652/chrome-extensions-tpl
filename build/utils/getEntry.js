@@ -11,14 +11,14 @@ const path = require('path');
 const { SRC_ROOT, HMR_CLIENT_SCRIPT } = require('./getPath');
 
 const devEntry = {
-  background: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Background/index.js')],
-  options: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Options/index.js')],
-  popup: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Popup/index.js')],
+  background: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Background/index.ts')],
+  options: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Options/index.tsx')],
+  popup: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Popup/index.tsx')],
 };
 const proEntry = {
-  background: path.resolve(SRC_ROOT, 'app/Background/index.js'),
-  options: path.resolve(SRC_ROOT, 'app/Options/index.js'),
-  popup: path.resolve(SRC_ROOT, 'app/Popup/index.js'),
+  background: path.resolve(SRC_ROOT, 'app/Background/index.ts'),
+  options: path.resolve(SRC_ROOT, 'app/Options/index.tsx'),
+  popup: path.resolve(SRC_ROOT, 'app/Popup/index.tsx'),
 };
 
 const webpackEntry = process.env.NODE_ENV === 'development' ? devEntry : proEntry;
@@ -30,7 +30,7 @@ const webpackEntry = process.env.NODE_ENV === 'development' ? devEntry : proEntr
 const scriptNames = fs.readdirSync(path.resolve(SRC_ROOT, './app/Contents'));
 
 scriptNames.forEach((name) => {
-  const contentModulePath = path.resolve(SRC_ROOT, `./app/Contents/${name}/index.js`);
+  const contentModulePath = path.resolve(SRC_ROOT, `./app/Contents/${name}/index.ts`);
 
   // webpack 入口模块， 以及最后生成的文件，都是使用这个名称， 将首字母转为小写
   const webpackEntryContentName = name.replace(name[0], name[0].toLowerCase());

@@ -29,24 +29,23 @@ module.exports = {
     chunkFilename: 'async/js/[name].js',
     filename: 'js/[name].js',
   },
+  experiments: {
+    // outputModule: true,
+    // syncWebAssembly: true, 兼容 旧版 webpack-4
+    topLevelAwait: true, // 支持 顶级 await
+    asyncWebAssembly: true,
+  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         use: ['babel-loader'],
         exclude: [/node_modules/],
       },
       {
-        test: /\.worker\.js$/,
-        use: [
-          {
-            loader: 'worker-loader',
-            options: { inline: true },
-          },
-          {
-            loader: 'babel-loader',
-          },
-        ],
+        test: /\.js$/,
+        use: ['source-map-loader'],
+        enforce: 'pre',
       },
       {
         test: /\.css$/,
@@ -114,7 +113,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.less', '.jsx', '.ts', '.wasm'],
+    extensions: ['.js', '.less', '.jsx', '.ts', '.tsx', '.wasm'],
     modules: [SRC_ROOT, path.resolve(PROJECT_ROOT, './node_modules')],
     alias: {
       _src: SRC_ROOT,

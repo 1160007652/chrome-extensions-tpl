@@ -28,17 +28,19 @@ import './index.less';
 import antdEnUS from 'antd/lib/locale/en_US';
 import antdZhCN from 'antd/lib/locale/zh_CN';
 
-ReactDOM.render(
-  <Provider {...rootStore}>
-    <ThemeProvider>
-      <ConfigProvider locale={i18n.language === 'zhCN' ? antdZhCN : antdEnUS}>
-        <HashRouter>
-          <WebLayout>
-            <Routes />
-          </WebLayout>
-        </HashRouter>
-      </ConfigProvider>
-    </ThemeProvider>
-  </Provider>,
-  document.getElementById('root'),
-);
+const Root: React.FC = () => {
+  return (
+    <Provider {...rootStore}>
+      <ThemeProvider>
+        <ConfigProvider locale={i18n.language === 'zhCN' ? antdZhCN : antdEnUS}>
+          <HashRouter>
+            <WebLayout>
+              <Routes />
+            </WebLayout>
+          </HashRouter>
+        </ConfigProvider>
+      </ThemeProvider>
+    </Provider>
+  );
+};
+ReactDOM.render(<Root />, document.getElementById('root'));

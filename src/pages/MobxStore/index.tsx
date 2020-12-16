@@ -4,7 +4,7 @@ import { MobXProviderContext, observer } from 'mobx-react';
 
 import './index.less';
 
-function Other() {
+const Other: React.FC = () => {
   const { testStore } = React.useContext(MobXProviderContext);
   const handleAddCount = () => {
     testStore.increment();
@@ -15,5 +15,5 @@ function Other() {
       <Button onClick={handleAddCount}>add Count</Button>
     </div>
   );
-}
+};
 export default observer(Other);

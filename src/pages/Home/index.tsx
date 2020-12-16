@@ -14,6 +14,7 @@ function Home() {
       <div className="title">{t('home:title')}</div>
       <div className="technology">
         <Tag>Webpack ^5</Tag>
+        <Tag>typeScript ^4</Tag>
         <Tag>Babel ^7</Tag>
         <Tag>React ^17</Tag>
         <Tag>react-i18next ^5</Tag>

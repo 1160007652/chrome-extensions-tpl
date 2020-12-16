@@ -4,11 +4,15 @@ import ThemeLight from '_assets/images/theme_light.svg';
 import ThemeDark from '_assets/images/theme_dark.svg';
 
 import './index.less';
+interface ThemeContextInjected {
+  theme: string; // 当前主题
+  setTheme: React.Dispatch<string>; // 修改当前主题状态
+}
 
-export const ThemeContext = React.createContext({});
+export const ThemeContext = React.createContext<ThemeContextInjected>({} as ThemeContextInjected);
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark');
+export const ThemeProvider: React.FC = ({ children }) => {
+  const [theme, setTheme] = useState<string>(localStorage.getItem('theme') ?? 'dark');
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
@@ -42,7 +46,7 @@ export const ThemeProvider = ({ children }) => {
 /**
  * 主题组件
  */
-const SwitchThemes = () => {
+const SwitchThemes: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const handleToggleThemes = (value) => {
     return () => {
