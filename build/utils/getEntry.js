@@ -15,6 +15,7 @@ const devEntry = {
   options: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Options/index.tsx')],
   popup: [HMR_CLIENT_SCRIPT, path.resolve(SRC_ROOT, 'app/Popup/index.tsx')],
 };
+
 const proEntry = {
   background: path.resolve(SRC_ROOT, 'app/Background/index.ts'),
   options: path.resolve(SRC_ROOT, 'app/Options/index.tsx'),
