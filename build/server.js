@@ -18,7 +18,6 @@ app.use(
       // 配置 cors 跨域
       'Access-Control-Allow-Origin': '*',
     },
-    lazy: false,
     stats: 'minimal',
     // 将 bundle 写到磁盘而不是内存
     writeToDisk: true,
