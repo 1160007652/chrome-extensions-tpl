@@ -105,6 +105,11 @@ module.exports = {
       {
         test: [/\.(ico|png|jpe?g|gif)$/],
         type: 'asset/resource',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
         generator: {
           filename: 'images/[name]-[hash:7][ext][query]',
         },
