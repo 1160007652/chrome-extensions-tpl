@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 
 import rootStore from '_src/stores';
@@ -9,7 +9,9 @@ import '_utils/i18n';
 import '_assets/less/index.less';
 import './index.less';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <Provider {...rootStore}>
     <ThemeProvider>
       <div className="about-box">
@@ -17,5 +19,4 @@ ReactDOM.render(
       </div>
     </ThemeProvider>
   </Provider>,
-  document.getElementById('root'),
 );

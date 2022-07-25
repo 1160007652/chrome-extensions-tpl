@@ -4,7 +4,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -12,12 +11,12 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'prettier',
-    // 专门支持了 eslint-plugin-react
-    'prettier/react',
-    // 专门支持了 @typescript-eslint/eslint-plugin
+    // Special support for eslint-plugin-react
+    // 'prettier/react',
+    // Special support for @typescript-eslint/eslint-plugin
     // 'prettier/@typescript-eslint',
   ],
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -25,16 +24,23 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/button-has-type': 'never',
-    'react/prop-types': 'never',
-    'react/sort-comp': 'never',
-    'import/extensions': 'never',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    //  取消 .d.ts 声明文件中使用了 constructor 报错 问题
+    'import/no-unresolved': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-unused-vars': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'no-var': 'error',
+    'jsx-a11y/alt-text': 'off',
+    'react/self-closing-comp': 'off',
+
+    'react/button-has-type': 'off',
+    'react/prop-types': 'off',
+    'react/sort-comp': 'off',
+    'import/extensions': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-useless-constructor': 'off',
-    '@typescript-eslint/no-useless-constructor': 'error',
   },
   overrides: [
     {
