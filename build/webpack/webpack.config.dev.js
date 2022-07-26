@@ -14,7 +14,7 @@ base.output.publicPath = '/';
 module.exports = merge(base, {
   target: 'web',
   mode: 'development',
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   plugins: [
     // 设置cleanStaleWebpackAssets 是为了保证后续热更新时, 不在清空所有数据, 只在第一次运行时清空数据
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

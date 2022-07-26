@@ -1,12 +1,13 @@
 const fs = require('fs');
 const url = require('url');
-const SseStream = require('ssestream');
+const SseStream = require('ssestream').default;
 
 const extensionAutoReload = (_compiler, opts) => {
   const middleware = (req, res, next) => {
     // 路由匹配失败， 不执行
     if (url.parse(req.url).pathname === opts.path) {
       const se = new SseStream(req);
+
       se.pipe(res);
 
       let closed = false;
@@ -24,14 +25,12 @@ const extensionAutoReload = (_compiler, opts) => {
               if (item.type === 'module') {
                 if (item.issuerName && item.issuerName.startsWith(`./src/app/Contents/${contentName}`)) {
                   return true;
-                } else if (item.name && item.name.startsWith(`./src/app/Contents/${contentName}`)) {
-                  return true;
-                } else {
-                  return false;
                 }
-              } else {
-                return false;
+                if (item.name && item.name.startsWith(`./src/app/Contents/${contentName}`)) {
+                  return true;
+                }
               }
+              return false;
             });
 
             if (findModules) {

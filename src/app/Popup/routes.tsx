@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import pageURL from '_constants/pageURL';
 import Home from '_src/pages/Home';
@@ -25,16 +25,16 @@ const routeMap = [
   },
 ];
 
-const Routes = () => {
+const AppRoutes = () => {
   return (
     <Suspense fallback={null}>
-      <Switch>
+      <Routes>
         {routeMap.map((item, index) => (
-          <Route key={index} path={item.path} exact={item.exact} component={item.component} />
+          <Route key={index} path={item.path} element={<item.component />} />
         ))}
-      </Switch>
+      </Routes>
     </Suspense>
   );
 };
 
-export default Routes;
+export default AppRoutes;

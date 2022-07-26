@@ -11,7 +11,7 @@ interface ThemeContextInjected {
 
 export const ThemeContext = React.createContext<ThemeContextInjected>({} as ThemeContextInjected);
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState<string>(localStorage.getItem('theme') ?? 'dark');
 
   useEffect(() => {

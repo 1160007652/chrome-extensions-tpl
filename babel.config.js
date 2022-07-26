@@ -5,10 +5,9 @@ const plugins = [
   '@babel/plugin-proposal-optional-chaining',
   '@babel/plugin-proposal-nullish-coalescing-operator',
   '@babel/plugin-transform-runtime',
-  ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
 ];
 
-module.exports = function (api) {
+module.exports = (api) => {
   api.cache(true);
   return {
     presets: [

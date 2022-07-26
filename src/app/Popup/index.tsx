@@ -7,16 +7,15 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'mobx-react';
 import { HashRouter } from 'react-router-dom';
-import { ConfigProvider } from 'antd';
 
 import { ThemeProvider } from '_components/SwitchThemes';
 import Routes from '_src/app/Popup/routes';
 import rootStore from '_src/stores';
 
-import i18n from '_utils/i18n';
+import '_utils/i18n';
 import { WebLayout } from '_src/Layout';
 
 import '_assets/themes/light.css';
@@ -24,23 +23,18 @@ import '_assets/themes/dark.css';
 import '_assets/less/index.less';
 import './index.less';
 
-// antd 组件库 多语言
-import antdEnUS from 'antd/lib/locale/en_US';
-import antdZhCN from 'antd/lib/locale/zh_CN';
-
 const Root: React.FC = () => {
   return (
     <Provider {...rootStore}>
       <ThemeProvider>
-        <ConfigProvider locale={i18n.language === 'zhCN' ? antdZhCN : antdEnUS}>
-          <HashRouter>
-            <WebLayout>
-              <Routes />
-            </WebLayout>
-          </HashRouter>
-        </ConfigProvider>
+        <HashRouter>
+          <WebLayout>
+            <Routes />
+          </WebLayout>
+        </HashRouter>
       </ThemeProvider>
     </Provider>
   );
 };
-ReactDOM.render(<Root />, document.getElementById('root'));
+
+createRoot(document.getElementById('root')).render(<Root />);

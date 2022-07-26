@@ -5,7 +5,7 @@ import SwitchThemes from '_components/SwitchThemes';
 
 import './index.less';
 
-const WebLayout: React.FC = ({ children }) => {
+const WebLayout = ({ children }) => {
   return (
     <div className="web-container">
       <div className="left">
